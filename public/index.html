@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="page" id="login-view">
+    <div class="page">
       <div class="media-pane">
         <div class="overlay"></div>
         <div class="phone-card">
@@ -55,33 +55,21 @@
 
           <div class="stat">Inventory: 1,285,521</div>
 
-          <form class="login-form" id="login-form">
+          <form class="login-form">
+            <label class="input-field">
+              <span class="icon" aria-hidden="true">▼</span>
+              <select required>
+                <option value="">Select location</option>
+                <option>East Warehouse</option>
+                <option>Central Hub</option>
+                <option>West Region</option>
+              </select>
+            </label>
+
             <label class="input-field">
               <span class="icon" aria-hidden="true">👤</span>
-              <input
-                id="username"
-                name="username"
-                type="text"
-                placeholder="User name"
-                autocomplete="username"
-                required
-              />
+              <input type="text" placeholder="User name" required />
             </label>
-
-            <label class="input-field">
-              <span class="icon" aria-hidden="true">🔒</span>
-              <input
-                id="password"
-                name="password"
-                type="password"
-                placeholder="Password"
-                autocomplete="current-password"
-                required
-              />
-            </label>
-
-            <p class="hint">Use <strong>testadmin</strong> / <strong>123</strong> to log in.</p>
-            <p class="error" id="error" role="alert" aria-live="polite"></p>
 
             <button type="submit">Login</button>
           </form>
@@ -96,99 +84,5 @@
         </div>
       </div>
     </div>
-
-    <main class="landing hidden" id="landing-view">
-      <aside class="sidebar">
-        <div class="sidebar-logo">
-          <div class="brand-logo" aria-hidden="true">
-            <div class="node"></div>
-            <div class="node"></div>
-            <div class="node"></div>
-            <div class="path"></div>
-          </div>
-          <div>
-            <p class="tag">Digital Journey</p>
-            <h2>Product Wizard</h2>
-          </div>
-        </div>
-        <nav>
-          <ul>
-            <li class="menu-item">Initial Setup</li>
-            <li class="menu-item">User Management</li>
-            <li class="menu-item">System Health Monitor</li>
-          </ul>
-        </nav>
-      </aside>
-
-      <section class="hero">
-        <div class="hero-media" role="presentation"></div>
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-          <div class="hero-chip">
-            <span>Welcome, <strong id="active-user">testadmin</strong></span>
-            <span class="online">Online</span>
-          </div>
-          <h1>Control Hub</h1>
-          <p>
-            Stay on top of routes, maintenance, and crew readiness with a unified
-            command center.
-          </p>
-          <div class="stats">
-            <div>
-              <span class="stat-value">6</span>
-              <span class="stat-label">Workflows</span>
-            </div>
-            <div>
-              <span class="stat-value">24</span>
-              <span class="stat-label">Live Sites</span>
-            </div>
-            <div>
-              <span class="stat-value">12</span>
-              <span class="stat-label">Service Crews</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="panels">
-        <div class="panel">
-          <h3>Initial Setup</h3>
-          <p>Provision devices, set regions, and configure dispatch rules.</p>
-        </div>
-        <div class="panel">
-          <h3>User Management</h3>
-          <p>Invite teammates, assign roles, and control access across hubs.</p>
-        </div>
-        <div class="panel">
-          <h3>System Health Monitor</h3>
-          <p>Track uptime, alerts, and field readiness in a single view.</p>
-        </div>
-      </section>
-    </main>
-
-    <script>
-      const form = document.getElementById('login-form');
-      const error = document.getElementById('error');
-      const loginView = document.getElementById('login-view');
-      const landingView = document.getElementById('landing-view');
-      const activeUser = document.getElementById('active-user');
-
-      form?.addEventListener('submit', (event) => {
-        event.preventDefault();
-        error.textContent = '';
-
-        const username = document.getElementById('username').value.trim();
-        const password = document.getElementById('password').value.trim();
-
-        if (username.toLowerCase() === 'testadmin' && password === '123') {
-          activeUser.textContent = username;
-          loginView.classList.add('hidden');
-          landingView.classList.remove('hidden');
-          landingView.scrollIntoView({ behavior: 'smooth' });
-        } else {
-          error.textContent = 'Invalid credentials. Use testadmin / 123 to continue.';
-        }
-      });
-    </script>
   </body>
 </html>
