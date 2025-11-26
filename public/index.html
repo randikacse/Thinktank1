@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Control Hub | Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <div class="media-pane">
+        <div class="overlay"></div>
+        <div class="phone-card">
+          <div class="phone-screen">
+            <div class="logo-chip">
+              <div class="chip-icon">{}</div>
+            </div>
+            <div class="mini-card">
+              <img
+                src="https://images.unsplash.com/photo-1529070538774-1843cb3265df?auto=format&fit=crop&w=700&q=80"
+                alt="Logistics background"
+              />
+              <div class="mini-content">
+                <h4>Control Hub</h4>
+                <p>Logistics Suite</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="map-hint">
+          <p>Real-time dispatch & tracking across every route.</p>
+        </div>
+      </div>
+
+      <div class="form-pane">
+        <div class="card">
+          <div class="brand">
+            <div class="brand-logo" aria-hidden="true">
+              <div class="node"></div>
+              <div class="node"></div>
+              <div class="node"></div>
+              <div class="path"></div>
+            </div>
+            <div>
+              <h1>Control Hub</h1>
+              <p>Total Logistics Management Suite</p>
+            </div>
+          </div>
+
+          <div class="stat">Inventory: 1,285,521</div>
+
+          <form class="login-form">
+            <label class="input-field">
+              <span class="icon" aria-hidden="true">▼</span>
+              <select required>
+                <option value="">Select location</option>
+                <option>East Warehouse</option>
+                <option>Central Hub</option>
+                <option>West Region</option>
+              </select>
+            </label>
+
+            <label class="input-field">
+              <span class="icon" aria-hidden="true">👤</span>
+              <input type="text" placeholder="User name" required />
+            </label>
+
+            <button type="submit">Login</button>
+          </form>
+
+          <div class="footer">
+            <div class="sunstone">
+              <div class="sun"></div>
+              <span>sunstone</span>
+            </div>
+            <span>high reliability</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
