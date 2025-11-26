@@ -13,76 +13,168 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="page">
-      <div class="media-pane">
-        <div class="overlay"></div>
-        <div class="phone-card">
-          <div class="phone-screen">
-            <div class="logo-chip">
-              <div class="chip-icon">{}</div>
-            </div>
-            <div class="mini-card">
-              <img
-                src="https://images.unsplash.com/photo-1529070538774-1843cb3265df?auto=format&fit=crop&w=700&q=80"
-                alt="Logistics background"
-              />
-              <div class="mini-content">
-                <h4>Control Hub</h4>
-                <p>Logistics Suite</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="map-hint">
-          <p>Real-time dispatch & tracking across every route.</p>
-        </div>
-      </div>
-
-      <div class="form-pane">
-        <div class="card">
-          <div class="brand">
-            <div class="brand-logo" aria-hidden="true">
-              <div class="node"></div>
-              <div class="node"></div>
-              <div class="node"></div>
-              <div class="path"></div>
-            </div>
-            <div>
-              <h1>Control Hub</h1>
-              <p>Total Logistics Management Suite</p>
-            </div>
-          </div>
-
-          <div class="stat">Inventory: 1,285,521</div>
-
-          <form class="login-form">
-            <label class="input-field">
-              <span class="icon" aria-hidden="true">▼</span>
-              <select required>
-                <option value="">Select location</option>
-                <option>East Warehouse</option>
-                <option>Central Hub</option>
-                <option>West Region</option>
-              </select>
-            </label>
-
-            <label class="input-field">
-              <span class="icon" aria-hidden="true">👤</span>
-              <input type="text" placeholder="User name" required />
-            </label>
-
-            <button type="submit">Login</button>
-          </form>
-
-          <div class="footer">
-            <div class="sunstone">
-              <div class="sun"></div>
-              <span>sunstone</span>
-            </div>
-            <span>high reliability</span>
-          </div>
-        </div>
-      </div>
+    <div class="background">
+      <div class="map-layer"></div>
+      <div class="gradient"></div>
     </div>
+
+    <main class="layout">
+      <section class="panel" id="loginView" aria-label="Control Hub login">
+        <header class="card-header">
+          <div class="brand-mark" aria-hidden="true">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="circuit"></span>
+          </div>
+          <div class="brand-copy">
+            <p class="eyebrow">integrated analytics</p>
+            <h1>Control HuB</h1>
+            <p class="subhead">Intelligent logistics visibility</p>
+          </div>
+        </header>
+
+        <div class="stat-pill">Inventory: <strong>1,285,521</strong></div>
+
+        <form class="login-form" id="loginForm" novalidate>
+          <label class="input-field">
+            <span class="icon" aria-hidden="true">📍</span>
+            <select required aria-label="Select location">
+              <option value="">Engineering Bldg B, Queens College, Flushing, NY 11367</option>
+              <option>East Warehouse</option>
+              <option>Central Hub</option>
+              <option>West Region</option>
+            </select>
+          </label>
+
+          <label class="input-field">
+            <span class="icon" aria-hidden="true">👤</span>
+            <input id="username" type="text" placeholder="User name" autocomplete="username" required />
+          </label>
+
+          <label class="input-field">
+            <span class="icon" aria-hidden="true">🔒</span>
+            <input
+              id="password"
+              type="password"
+              placeholder="Password"
+              autocomplete="current-password"
+              required
+            />
+          </label>
+
+          <p class="error" id="error" role="alert" aria-live="polite"></p>
+          <button type="submit" class="submit">Login</button>
+        </form>
+
+        <footer class="card-footer">
+          <div class="sunstone">
+            <span class="sun"></span>
+            <span class="label">sunstone</span>
+          </div>
+          <span class="reliability">high reliability</span>
+        </footer>
+      </section>
+
+      <section class="landing hidden" id="landingView" aria-label="Control Hub landing page">
+        <aside class="icon-rail" aria-label="Section shortcuts">
+          <div class="rail-logo" aria-hidden="true">☀️</div>
+          <button class="rail-icon active" aria-label="Digital Journey">Dj</button>
+          <button class="rail-icon" aria-label="Emergency">Em</button>
+          <button class="rail-icon" aria-label="Freight planning">Fp</button>
+          <button class="rail-icon" aria-label="Rail briefings">Rb</button>
+          <button class="rail-icon" aria-label="Safety management">Sm</button>
+        </aside>
+
+        <nav class="flyout" aria-label="Navigation menu">
+          <div class="menu-header">
+            <span class="label">DIGITAL JOURNEY</span>
+            <span class="hint">Navigate</span>
+          </div>
+          <ul class="menu-list">
+            <li class="menu-item expanded">
+              <div class="menu-title">
+                <div class="menu-icon" aria-hidden="true">⚙️</div>
+                <span>Administration</span>
+                <span class="chevron" aria-hidden="true">›</span>
+              </div>
+              <ul class="submenu">
+                <li><span aria-hidden="true">👤</span>User Maintenance</li>
+                <li><span aria-hidden="true">⛟</span>Load Maintenance</li>
+                <li><span aria-hidden="true">🔄</span>Workflow Maintenance</li>
+              </ul>
+            </li>
+            <li class="menu-item">
+              <div class="menu-title">
+                <div class="menu-icon" aria-hidden="true">🧭</div>
+                <span>Trip Dashboard</span>
+              </div>
+            </li>
+            <li class="menu-item">
+              <div class="menu-title">
+                <div class="menu-icon" aria-hidden="true">📊</div>
+                <span>Analytics</span>
+              </div>
+            </li>
+            <li class="menu-item">
+              <div class="menu-title">
+                <div class="menu-icon" aria-hidden="true">📑</div>
+                <span>Reports</span>
+              </div>
+            </li>
+            <li class="menu-item">
+              <div class="menu-title">
+                <div class="menu-icon" aria-hidden="true">🎥</div>
+                <span>Training materials</span>
+              </div>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="hero">
+          <div class="hero-logo" aria-hidden="true">
+            <div class="orb"></div>
+            <div class="glyph">⏚</div>
+          </div>
+          <div class="hero-text">
+            <div class="badge">
+              <span class="dot" aria-hidden="true"></span>
+              <span class="label">sunstone</span>
+            </div>
+            <h1>Control</h1>
+            <h1>Hub</h1>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      const loginForm = document.getElementById('loginForm');
+      const usernameInput = document.getElementById('username');
+      const passwordInput = document.getElementById('password');
+      const error = document.getElementById('error');
+      const loginView = document.getElementById('loginView');
+      const landingView = document.getElementById('landingView');
+
+      function showLanding() {
+        loginView.classList.add('hidden');
+        landingView.classList.remove('hidden');
+        document.title = 'Control Hub | Landing';
+      }
+
+      loginForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const user = usernameInput.value.trim();
+        const pass = passwordInput.value;
+
+        if (user === 'admin' && pass === '123') {
+          error.textContent = '';
+          showLanding();
+        } else {
+          error.textContent = 'Invalid credentials. Use admin / 123 to continue.';
+          passwordInput.focus();
+        }
+      });
+    </script>
   </body>
 </html>
