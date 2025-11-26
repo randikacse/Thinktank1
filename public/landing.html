@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Control Hub | Landing</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="background">
+      <div class="map-layer"></div>
+      <div class="gradient"></div>
+    </div>
+
+    <main class="layout">
+      <section class="landing" aria-label="Control Hub landing page">
+        <aside class="icon-rail" aria-label="Section shortcuts">
+          <div class="rail-logo" aria-hidden="true">☀️</div>
+          <button class="rail-icon active" aria-label="Digital Journey">Dj</button>
+          <button class="rail-icon" aria-label="Emergency">Em</button>
+          <button class="rail-icon" aria-label="Freight planning">Fp</button>
+          <button class="rail-icon" aria-label="Rail briefings">Rb</button>
+          <button class="rail-icon" aria-label="Safety management">Sm</button>
+        </aside>
+
+        <nav class="flyout" aria-label="Navigation menu">
+          <div class="menu-header">
+            <span class="label">DIGITAL JOURNEY</span>
+            <span class="hint">Navigate</span>
+          </div>
+          <ul class="menu-list">
+            <li class="menu-item expanded">
+              <div class="menu-title">
+                <div class="menu-icon" aria-hidden="true">⚙️</div>
+                <span>Administration</span>
+                <span class="chevron" aria-hidden="true">›</span>
+              </div>
+              <ul class="submenu">
+                <li><span aria-hidden="true">👤</span>User Maintenance</li>
+                <li><span aria-hidden="true">⛟</span>Load Maintenance</li>
+                <li><span aria-hidden="true">🔄</span>Workflow Maintenance</li>
+              </ul>
+            </li>
+            <li class="menu-item">
+              <div class="menu-title">
+                <div class="menu-icon" aria-hidden="true">🧭</div>
+                <span>Trip Dashboard</span>
+              </div>
+            </li>
+            <li class="menu-item">
+              <div class="menu-title">
+                <div class="menu-icon" aria-hidden="true">📊</div>
+                <span>Analytics</span>
+              </div>
+            </li>
+            <li class="menu-item">
+              <div class="menu-title">
+                <div class="menu-icon" aria-hidden="true">📑</div>
+                <span>Reports</span>
+              </div>
+            </li>
+            <li class="menu-item">
+              <div class="menu-title">
+                <div class="menu-icon" aria-hidden="true">🎥</div>
+                <span>Training materials</span>
+              </div>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="hero">
+          <div class="hero-logo" aria-hidden="true">
+            <div class="orb"></div>
+            <div class="glyph">⏚</div>
+          </div>
+          <div class="hero-text">
+            <div class="badge">
+              <span class="dot" aria-hidden="true"></span>
+              <span class="label">sunstone</span>
+            </div>
+            <h1>Control</h1>
+            <h1>Hub</h1>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
