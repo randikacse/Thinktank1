@@ -12,7 +12,7 @@
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body class="wizard-page">
+  <body>
     <div class="background">
       <div class="map-layer"></div>
       <div class="gradient"></div>
@@ -72,13 +72,13 @@
 
           <div class="wizard-content">
             <div class="wizard-header">
-              <h2>Client Setup</h2>
-              <p class="muted">Follow the guided steps to configure a new organization.</p>
+              <h2>Concept A: Initial Setup Wizard</h2>
+              <p class="muted">A guided, step-by-step flow to configure the system for new clients, eliminating SQL scripts.</p>
             </div>
 
             <div class="wizard-body">
               <section class="step-view" data-step="1">
-                <h3>Client Details</h3>
+                <h3>Client Setup</h3>
                 <div class="field">
                   <label for="clientName">Client Organization Name</label>
                   <input
@@ -100,21 +100,30 @@
 
               <section class="step-view" data-step="2">
                 <h3>Enable Modules</h3>
-                <div class="module-list">
-                  <label class="module-row" data-module="scheduling">
-                    <span class="tile-title">Scheduling</span>
+                <div class="module-grid">
+                  <label class="module-tile" data-module="scheduling">
+                    <div>
+                      <p class="tile-title">Scheduling</p>
+                      <p class="tile-subtitle">Route, dock, and sequence planning</p>
+                    </div>
                     <div class="toggle" aria-hidden="true">
                       <div class="toggle-thumb"></div>
                     </div>
                   </label>
-                  <label class="module-row" data-module="analytics">
-                    <span class="tile-title">Analytics</span>
+                  <label class="module-tile" data-module="analytics">
+                    <div>
+                      <p class="tile-title">Analytics</p>
+                      <p class="tile-subtitle">Insights and performance dashboards</p>
+                    </div>
                     <div class="toggle" aria-hidden="true">
                       <div class="toggle-thumb"></div>
                     </div>
                   </label>
-                  <label class="module-row" data-module="driverApp">
-                    <span class="tile-title">Driver App</span>
+                  <label class="module-tile" data-module="driverApp">
+                    <div>
+                      <p class="tile-title">Driver App</p>
+                      <p class="tile-subtitle">Mobile companion for field crews</p>
+                    </div>
                     <div class="toggle" aria-hidden="true">
                       <div class="toggle-thumb"></div>
                     </div>
@@ -192,7 +201,7 @@
       const stepViews = Array.from(document.querySelectorAll('.step-view'));
       const clientNameInput = document.getElementById('clientName');
       const industrySelect = document.getElementById('industry');
-      const moduleRows = Array.from(document.querySelectorAll('.module-row'));
+      const moduleTiles = Array.from(document.querySelectorAll('.module-tile'));
       const orgNameTarget = document.querySelector('.org-name');
       const provisionLog = document.querySelector('.provision-log');
       const nextBtn = document.getElementById('nextBtn');
@@ -212,10 +221,10 @@
           view.classList.toggle('visible', viewStep === state.step);
         });
 
-        moduleRows.forEach((row) => {
-          const key = row.dataset.module;
+        moduleTiles.forEach((tile) => {
+          const key = tile.dataset.module;
           const enabled = !!state.modules[key];
-          row.classList.toggle('active', enabled);
+          tile.classList.toggle('active', enabled);
         });
 
         orgNameTarget.textContent = state.clientName || 'Acme';
@@ -236,9 +245,9 @@
         render();
       });
 
-      moduleRows.forEach((row) => {
-        row.addEventListener('click', () => {
-          const key = row.dataset.module;
+      moduleTiles.forEach((tile) => {
+        tile.addEventListener('click', () => {
+          const key = tile.dataset.module;
           state.modules[key] = !state.modules[key];
           render();
         });

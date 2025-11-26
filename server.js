@@ -22,32 +22,8 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-app.post('/api/login', (req, res) => {
-  const { username, password } = req.body || {};
-
-  if (username === 'admin' && password === '123') {
-    res.cookie(AUTH_COOKIE, 'admin', {
-      httpOnly: true,
-      sameSite: 'lax',
-      maxAge: 60 * 60 * 1000,
-    });
-    return res.status(200).json({ success: true });
-  }
-
-  return res.status(401).json({ success: false, message: 'Invalid credentials.' });
-});
-
-app.get('/landing', requireAuth, (req, res) => {
+app.get('/landing', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'landing.html'));
-});
-
-app.get('/solution-wizard', requireAuth, (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'SolutionWizard.html'));
-});
-
-app.get('/logout', (req, res) => {
-  res.clearCookie(AUTH_COOKIE);
-  res.redirect('/');
 });
 
 app.listen(PORT, () => {

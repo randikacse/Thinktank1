@@ -34,18 +34,10 @@
           </div>
         </header>
 
-        <div class="stat-pill">Inventory: <strong>1,285,521</strong></div>
+        <div class="stat-pill">V : <strong>1.00.00
+        </strong></div>
 
         <form class="login-form" id="loginForm" novalidate>
-          <label class="input-field">
-            <span class="icon" aria-hidden="true">📍</span>
-            <select id="location" name="location" required aria-label="Select location">
-              <option value="">Engineering Bldg B, Queens College, Flushing, NY 11367</option>
-              <option>East Warehouse</option>
-              <option>Central Hub</option>
-              <option>West Region</option>
-            </select>
-          </label>
 
           <label class="input-field">
             <span class="icon" aria-hidden="true">👤</span>
@@ -72,51 +64,28 @@
             <span class="sun"></span>
             <span class="label">sunstone</span>
           </div>
-          <span class="reliability">high reliability</span>
         </footer>
       </section>
     </main>
 
+  
     <script>
       const loginForm = document.getElementById('loginForm');
       const usernameInput = document.getElementById('username');
       const passwordInput = document.getElementById('password');
-      const locationSelect = document.getElementById('location');
       const error = document.getElementById('error');
 
-      loginForm.addEventListener('submit', async (event) => {
+      loginForm.addEventListener('submit', (event) => {
         event.preventDefault();
-        error.textContent = '';
+        const user = usernameInput.value.trim();
+        const pass = passwordInput.value;
 
-        if (!loginForm.reportValidity()) {
-          return;
-        }
-
-        const payload = {
-          username: usernameInput.value.trim(),
-          password: passwordInput.value,
-          location: locationSelect.value,
-        };
-
-        try {
-          const response = await fetch('/api/login', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(payload),
-          });
-
-          if (response.ok) {
-            window.location.href = '/landing';
-            return;
-          }
-
-          const data = await response.json().catch(() => ({}));
-          error.textContent = data.message || 'Invalid credentials. Use admin / 123 to continue.';
+        if (user === 'admin' && pass === '123') {
+          error.textContent = '';
+          window.location.href = '/landing';
+        } else {
+          error.textContent = 'Invalid credentials. Use admin / 123 to continue.';
           passwordInput.focus();
-        } catch (err) {
-          error.textContent = 'Unable to reach the server. Please try again.';
         }
       });
     </script>
