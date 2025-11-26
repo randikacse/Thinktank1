@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Control Hub | Solution Wizard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="wizard-page">
+    <div class="background">
+      <div class="map-layer"></div>
+      <div class="gradient"></div>
+    </div>
+
+    <main class="layout">
+      <section class="wizard-shell" aria-label="Solution wizard">
+        <header class="wizard-nav" aria-label="Navigation menu">
+          <div class="brand-mark compact" aria-hidden="true">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="circuit"></span>
+          </div>
+          <div class="wizard-brand">
+            <p class="eyebrow">Control Hub</p>
+            <div class="wizard-title">Solution Wizard</div>
+          </div>
+          <nav class="nav-menu" aria-label="Primary">
+            <a href="/landing" class="nav-link">Landing</a>
+            <a href="/solution-wizard" class="nav-link active">Wizard</a>
+            <a href="/logout" class="nav-link">Logout</a>
+          </nav>
+        </header>
+
+        <div class="wizard-card">
+          <aside class="wizard-steps" aria-label="Wizard steps">
+            <div class="step-pill" data-step="1">
+              <div class="pill-icon">1</div>
+              <div class="pill-text">
+                <span class="pill-label">Client Details</span>
+                <p>Organization basics</p>
+              </div>
+            </div>
+            <div class="step-pill" data-step="2">
+              <div class="pill-icon">2</div>
+              <div class="pill-text">
+                <span class="pill-label">Module Selection</span>
+                <p>Choose capabilities</p>
+              </div>
+            </div>
+            <div class="step-pill" data-step="3">
+              <div class="pill-icon">3</div>
+              <div class="pill-text">
+                <span class="pill-label">Data Template</span>
+                <p>Import master data</p>
+              </div>
+            </div>
+            <div class="step-pill" data-step="4">
+              <div class="pill-icon">4</div>
+              <div class="pill-text">
+                <span class="pill-label">Finish</span>
+                <p>Provision summary</p>
+              </div>
+            </div>
+          </aside>
+
+          <div class="wizard-content">
+            <div class="wizard-header">
+              <h2>Client Setup</h2>
+              <p class="muted">Follow the guided steps to configure a new organization.</p>
+            </div>
+
+            <div class="wizard-body">
+              <section class="step-view" data-step="1">
+                <h3>Client Details</h3>
+                <div class="field">
+                  <label for="clientName">Client Organization Name</label>
+                  <input
+                    id="clientName"
+                    type="text"
+                    placeholder="e.g., Acme Logistics"
+                    autocomplete="organization"
+                  />
+                </div>
+                <div class="field">
+                  <label for="industry">Industry Vertical</label>
+                  <select id="industry">
+                    <option value="logistics">Logistics &amp; Transport</option>
+                    <option value="retail">Retail Delivery</option>
+                    <option value="services">Field Services</option>
+                  </select>
+                </div>
+              </section>
+
+              <section class="step-view" data-step="2">
+                <h3>Enable Modules</h3>
+                <div class="module-list">
+                  <label class="module-row" data-module="scheduling">
+                    <span class="tile-title">Scheduling</span>
+                    <div class="toggle" aria-hidden="true">
+                      <div class="toggle-thumb"></div>
+                    </div>
+                  </label>
+                  <label class="module-row" data-module="analytics">
+                    <span class="tile-title">Analytics</span>
+                    <div class="toggle" aria-hidden="true">
+                      <div class="toggle-thumb"></div>
+                    </div>
+                  </label>
+                  <label class="module-row" data-module="driverApp">
+                    <span class="tile-title">Driver App</span>
+                    <div class="toggle" aria-hidden="true">
+                      <div class="toggle-thumb"></div>
+                    </div>
+                  </label>
+                </div>
+              </section>
+
+              <section class="step-view" data-step="3">
+                <h3>Import Master Data</h3>
+                <div class="dropzone" role="region" aria-label="CSV upload placeholder">
+                  <p>Drag and drop your CSV template here</p>
+                  <p class="muted">Based on "Logistics" blueprint</p>
+                  <a
+                    id="templateLink"
+                    class="template-link"
+                    download="control-hub-template.csv"
+                    href="data:text/csv,Type,Name,Description%0AVehicle,Truck-001,Primary route%0ADriver,Alex Rider,Lead driver"
+                  >
+                    Download Template
+                  </a>
+                </div>
+                <div class="import-cards">
+                  <div class="import-card">
+                    <p class="muted">Vehicles</p>
+                    <p class="import-count" data-count="vehicles">0 imported</p>
+                  </div>
+                  <div class="import-card">
+                    <p class="muted">Drivers</p>
+                    <p class="import-count" data-count="drivers">0 imported</p>
+                  </div>
+                </div>
+              </section>
+
+              <section class="step-view" data-step="4">
+                <div class="finish-state">
+                  <div class="finish-icon" aria-hidden="true">✓</div>
+                  <h3>Setup Complete!</h3>
+                  <p class="muted">
+                    Organization <strong class="org-name">Acme</strong> has been provisioned with selected modules and default rule sets.
+                  </p>
+                  <pre class="provision-log" aria-label="Provisioning log"></pre>
+                </div>
+              </section>
+            </div>
+
+            <footer class="wizard-footer">
+              <button class="ghost" id="backBtn">Back</button>
+              <button class="primary" id="nextBtn">Next</button>
+            </footer>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      const steps = [
+        { id: 1, label: 'Client Details' },
+        { id: 2, label: 'Module Selection' },
+        { id: 3, label: 'Data Template' },
+        { id: 4, label: 'Finish' },
+      ];
+
+      const state = {
+        step: 1,
+        clientName: '',
+        industry: 'logistics',
+        modules: {
+          scheduling: true,
+          analytics: false,
+          driverApp: true,
+        },
+      };
+
+      const stepPills = Array.from(document.querySelectorAll('.step-pill'));
+      const stepViews = Array.from(document.querySelectorAll('.step-view'));
+      const clientNameInput = document.getElementById('clientName');
+      const industrySelect = document.getElementById('industry');
+      const moduleRows = Array.from(document.querySelectorAll('.module-row'));
+      const orgNameTarget = document.querySelector('.org-name');
+      const provisionLog = document.querySelector('.provision-log');
+      const nextBtn = document.getElementById('nextBtn');
+      const backBtn = document.getElementById('backBtn');
+      const templateLink = document.getElementById('templateLink');
+
+      const render = () => {
+        stepPills.forEach((pill) => {
+          const stepId = Number(pill.dataset.step);
+          pill.classList.toggle('active', stepId === state.step);
+          pill.classList.toggle('complete', stepId < state.step);
+          pill.querySelector('.pill-icon').textContent = stepId < state.step ? '✓' : stepId;
+        });
+
+        stepViews.forEach((view) => {
+          const viewStep = Number(view.dataset.step);
+          view.classList.toggle('visible', viewStep === state.step);
+        });
+
+        moduleRows.forEach((row) => {
+          const key = row.dataset.module;
+          const enabled = !!state.modules[key];
+          row.classList.toggle('active', enabled);
+        });
+
+        orgNameTarget.textContent = state.clientName || 'Acme';
+        provisionLog.textContent = `> Provisioning Database... OK\n> Applying "${state.industry}" Blueprint... OK\n> Creating Admin User... OK`;
+
+        backBtn.disabled = state.step === 1;
+        nextBtn.textContent = state.step === 3 ? 'Finish' : state.step === 4 ? 'Done' : 'Next';
+        nextBtn.disabled = state.step === 4;
+      };
+
+      clientNameInput.addEventListener('input', (event) => {
+        state.clientName = event.target.value.trim();
+        render();
+      });
+
+      industrySelect.addEventListener('change', (event) => {
+        state.industry = event.target.value;
+        render();
+      });
+
+      moduleRows.forEach((row) => {
+        row.addEventListener('click', () => {
+          const key = row.dataset.module;
+          state.modules[key] = !state.modules[key];
+          render();
+        });
+      });
+
+      stepPills.forEach((pill) => {
+        pill.addEventListener('click', () => {
+          state.step = Number(pill.dataset.step);
+          render();
+        });
+      });
+
+      nextBtn.addEventListener('click', () => {
+        state.step = Math.min(state.step + 1, steps.length);
+        render();
+      });
+
+      backBtn.addEventListener('click', () => {
+        state.step = Math.max(state.step - 1, 1);
+        render();
+      });
+
+      templateLink.addEventListener('click', () => {
+        const vehicleCount = document.querySelector('[data-count="vehicles"]');
+        const driverCount = document.querySelector('[data-count="drivers"]');
+        vehicleCount.textContent = '12 imported';
+        driverCount.textContent = '18 imported';
+      });
+
+      render();
+    </script>
+  </body>
+</html>
